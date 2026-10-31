@@ -30,10 +30,7 @@
         This is a directory of resources for Indianapolis real estate investors with a focus on local businesses and
         groups. Last updated in 2026. Please <a href="https://indianapolisrealestateinvesting.com/">link to us</a> on
         your
-        website or <a href="#" id="share-link">share us</a>! Bookmark this page with Ctrl+D (⌘+D on a Mac).</p>
-    <p id="page-actions" hidden>
-        <a href="#" id="home-screen-link">Add to home screen</a>
-    </p>
+        website or <a href="#" id="share">share us</a>! Bookmark this page with Ctrl+D (⌘+D on a Mac).</p>
     <h2 id="associations">Associations <a href="#associations" title="Link to this section">#</a></h2>
     <ul>
         <li><strong><a href="https://cireia.club/" target="_blank">CIREIA (Central Indiana Real Estate Investors
@@ -456,23 +453,9 @@
             business with anyone or making any investment decision.</small></p>
     <script>
         (function () {
-            var url = 'https://indianapolisrealestateinvesting.com/';
-            var title = document.title;
-            var ua = navigator.userAgent;
-            var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-            var isMobile = isIOS || /Android/.test(ua);
-
-            if (isMobile) {
-                document.getElementById('page-actions').hidden = false;
-                document.getElementById('home-screen-link').addEventListener('click', function (e) {
-                    e.preventDefault();
-                    alert(isIOS
-                        ? 'Tap the Share button, then "Add to Home Screen".'
-                        : 'Open your browser menu (⋮), then tap "Add to Home screen".');
-                });
-            }
-
-            document.getElementById('share-link').addEventListener('click', function (e) {
+            const url = 'https://indianapolisrealestateinvesting.com/';
+            const title = document.title;
+            document.getElementById('share').addEventListener('click', function (e) {
                 e.preventDefault();
                 if (navigator.share) {
                     navigator.share({ title: title, url: url }).catch(function () { });
